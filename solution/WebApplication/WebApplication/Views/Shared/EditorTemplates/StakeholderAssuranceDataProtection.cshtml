@@ -1,0 +1,12 @@
+﻿@model WebApplication.Models.Customisations.WizardReference.StakeholderAssuranceDataProtection
+<div class="form-group">
+    @for (int i = 0; i < Model.Options.Count; i++)
+    {
+        <label class="control-label">
+            @Html.DisplayFor(m => m.Options[i].Option)
+        </label>
+        <input asp-for="Options[i].IsSelected" />
+        <br>
+    }
+
+</div>

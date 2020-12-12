@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication.Models.Customisations.WizardReference;
-using static WebApplication.Models.Customisations.WizardReference.WizardEnums;
 
 namespace WebApplication.Models.Customisations
 {
@@ -75,7 +74,7 @@ namespace WebApplication.Models.Customisations
         public InformationLevel InfoLevelOfData { get; set; }
 
         [Display(Name = "16. What are the top-3 properties of the dataset?")]
-        public DatasetProperties TopThreePropsOfData { get; set; }
+        public DatasetProperties TopThreePropsOfData { get; set; } = new DatasetProperties();
 
         [Display(Name = "17. Is the data quality high?")]
         public bool IsDataQualityLevelHigh { get; set; }
@@ -134,13 +133,13 @@ namespace WebApplication.Models.Customisations
 
         // can include multiple selections?
         [Display(Name = "29. Have you incorporated a top-level assessment to produce an initial specification? Outcomes are:")]
-        public SpecificationOutcomes TopLevelAssessment { get; set; }
+        public SpecificationOutcomes TopLevelAssessment { get; set; } = new SpecificationOutcomes();
 
         [Display(Name = "30. Analysis to establish relevant plausible scenarios for your data situation. When you undertake a scenario analysis, you are essentially considering the how, who and why of a potential data breach.Explain ? ")]
         public string AnalysisExplanation { get; set; }
-        
+
         [Display(Name = "31. Data Analytical approaches considered:")]
-        public DatasetProperties DataAnalyticalApproaches { get; set; }
+        public DatasetProperties DataAnalyticalApproaches { get; set; } = new DatasetProperties();
 
         [Display(Name = "32. Penetration Testing?")]
         public bool PreparationTesting { get; set; }
@@ -150,10 +149,10 @@ namespace WebApplication.Models.Customisations
         #region Identify the disclosure control processes that are relevant to your data situation
 
         [Display(Name = "33. If you need to reconfigure the environment, how would you do that?")]
-        public EnvironmentReconfigurationOptions ReconfigureEnvirontment { get; set; }
+        public EnvironmentReconfigurationOptions ReconfigureEnvirontment { get; set; } = new EnvironmentReconfigurationOptions();
 
         [Display(Name = "34. If you need to modify the data, how would you do that?")]
-        public DataModificationOptions ModifyingData { get; set; }
+        public DataModificationOptions ModifyingData { get; set; } = new DataModificationOptions();
 
         [Display(Name = "35. Explanation:")]
         [StringLength(400)]
@@ -165,13 +164,13 @@ namespace WebApplication.Models.Customisations
         #region Impact management puts in place a plan for reducing the impact of such ane vent should it happen
 
         [Display(Name = "36. How would you manage the impact of a disclosure (related to Notifiable Data Breach) if you and your stakeholders have developed a good working relationship. What have you done to reduce the likelihood to manage this?")]
-        public DataBreachImpactManagementOptions ImpactManagementReductionOptions { get; set; }
+        public DataBreachImpactManagementOptions ImpactManagementReductionOptions { get; set; } = new DataBreachImpactManagementOptions();
 
         [Display(Name = "37. Who your stakeholders are and what assurances you provided them with in terms of the use and protection of the data")]
-        public StakeholderAssuranceDataProtection StakeholdersAssurance { get; set; }
+        public StakeholderAssuranceDataProtection StakeholdersAssurance { get; set; } = new StakeholderAssuranceDataProtection();
 
         [Display(Name = "38. Document the process you would follow in the event of a possible breach.")]
-        public DataBreachPlanOptions PlanForDataBreachProcess { get; set; }
+        public DataBreachPlanOptions PlanForDataBreachProcess { get; set; } = new DataBreachPlanOptions();
 
         [Display(Name = "39. Explanation:")]
         [StringLength(400)]
