@@ -74,7 +74,7 @@ namespace WebApplication.Models.Customisations
         public InformationLevel InfoLevelOfData { get; set; }
 
         [Display(Name = "16. What are the top-3 properties of the dataset?")]
-        public DatasetProperties TopThreePropsOfData { get; set; } = new DatasetProperties();
+        public CheckBoxOptionsFor<Properties> TopThreePropsOfData { get; set; } = new CheckBoxOptionsFor<Properties>();
 
         [Display(Name = "17. Is the data quality high?")]
         public bool IsDataQualityLevelHigh { get; set; }
@@ -133,13 +133,13 @@ namespace WebApplication.Models.Customisations
 
         // can include multiple selections?
         [Display(Name = "29. Have you incorporated a top-level assessment to produce an initial specification? Outcomes are:")]
-        public SpecificationOutcomes TopLevelAssessment { get; set; } = new SpecificationOutcomes();
+        public CheckBoxOptionsFor<Specifications> TopLevelAssessment { get; set; } = new CheckBoxOptionsFor<Specifications>();
 
         [Display(Name = "30. Analysis to establish relevant plausible scenarios for your data situation. When you undertake a scenario analysis, you are essentially considering the how, who and why of a potential data breach.Explain ? ")]
         public string AnalysisExplanation { get; set; }
 
         [Display(Name = "31. Data Analytical approaches considered:")]
-        public DatasetProperties DataAnalyticalApproaches { get; set; } = new DatasetProperties();
+        public CheckBoxOptionsFor<Properties> DataAnalyticalApproaches { get; set; } = new CheckBoxOptionsFor<Properties>();
 
         [Display(Name = "32. Penetration Testing?")]
         public bool PreparationTesting { get; set; }
@@ -149,10 +149,10 @@ namespace WebApplication.Models.Customisations
         #region Identify the disclosure control processes that are relevant to your data situation
 
         [Display(Name = "33. If you need to reconfigure the environment, how would you do that?")]
-        public EnvironmentReconfigurationOptions ReconfigureEnvirontment { get; set; } = new EnvironmentReconfigurationOptions();
+        public CheckBoxOptionsFor<EnvironmentReconfigurations> ReconfigureEnvirontment { get; set; } = new CheckBoxOptionsFor<EnvironmentReconfigurations>();
 
         [Display(Name = "34. If you need to modify the data, how would you do that?")]
-        public DataModificationOptions ModifyingData { get; set; } = new DataModificationOptions();
+        public CheckBoxOptionsFor<DataModification> ModifyingData { get; set; } = new CheckBoxOptionsFor<DataModification>();
 
         [Display(Name = "35. Explanation:")]
         [StringLength(400)]
@@ -164,13 +164,13 @@ namespace WebApplication.Models.Customisations
         #region Impact management puts in place a plan for reducing the impact of such ane vent should it happen
 
         [Display(Name = "36. How would you manage the impact of a disclosure (related to Notifiable Data Breach) if you and your stakeholders have developed a good working relationship. What have you done to reduce the likelihood to manage this?")]
-        public DataBreachImpactManagementOptions ImpactManagementReductionOptions { get; set; } = new DataBreachImpactManagementOptions();
+        public CheckBoxOptionsFor<DataBreachImpactManagement> ImpactManagementReductionOptions { get; set; } = new CheckBoxOptionsFor<DataBreachImpactManagement>();
 
         [Display(Name = "37. Who your stakeholders are and what assurances you provided them with in terms of the use and protection of the data")]
-        public StakeholderAssuranceDataProtection StakeholdersAssurance { get; set; } = new StakeholderAssuranceDataProtection();
+        public CheckBoxOptionsFor<StakeholderAssuranceProtection> StakeholdersAssurance { get; set; } = new CheckBoxOptionsFor<StakeholderAssuranceProtection>();
 
         [Display(Name = "38. Document the process you would follow in the event of a possible breach.")]
-        public DataBreachPlanOptions PlanForDataBreachProcess { get; set; } = new DataBreachPlanOptions();
+        public CheckBoxOptionsFor<DataBreachPlan> PlanForDataBreachProcess { get; set; } = new CheckBoxOptionsFor<DataBreachPlan>();
 
         [Display(Name = "39. Explanation:")]
         [StringLength(400)]
