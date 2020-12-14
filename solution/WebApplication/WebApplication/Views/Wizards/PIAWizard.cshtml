@@ -1,137 +1,714 @@
-﻿@model WebApplication.Models.Wizards.ExternalFileUpload
+﻿@model WebApplication.Models.Customisations.PIAWizardModel;
 @{
     ViewData["Title"] = "Privacy Impact Assessment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Privacy Impact Assessment</h1>
+<h1>Privacy Impact Assessmenteoighoi</h1>
 <!-- MultiStep Form -->
 <div id="smartwizard">
     <ul class="nav">
         <li>
             <a class="nav-link" href="#step-1">
                 <strong>Step 1</strong>
-                <br /> Select Storage Account for Upload
+                <br /> Introduction
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-2">
                 <strong>Step 2</strong>
-                <br /> Select Email System
+                <br /> Legal Responsibility
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-3">
                 <strong>Step 3</strong>
-                <br /> Select Lockbox Location
+                <br /> Know your Data
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-4">
                 <strong>Step 4</strong>
-                <br /> Select Schedule
+                <br /> Use Case
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-5">
                 <strong>Step 5</strong>
-                <br /> Input Third Party Details
+                <br /> Ethical Obligations
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-6">
                 <strong>Step 6</strong>
-                <br /> Input Upload FileName
+                <br /> Risk Processes
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-7">
                 <strong>Step 7</strong>
-                <br /> Input Operator Email Address
+                <br /> Risk  Assessment
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-8">
                 <strong>Step 8</strong>
-                <br /> Select Task Group
+                <br /> Control Process
             </a>
         </li>
+        <li>
+            <a class="nav-link" href="#step-9">
+                <strong>Step 9</strong>
+                <br /> Impact Management
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-10">
+                <strong>Step 10</strong>
+                <br /> Summary
+            </a>
+        </li>
+
     </ul>
-    <form asp-action="Create">
+
+    @using (Html.BeginForm("PIAWizard", "Wizards", FormMethod.Post))
+    {
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="tab-content">
             <div id="step-1" class="tab-pane" role="tabpanel">
                 <br />
-                <div class="form-group">
-                    <label> Select the Azure storage location into which you would like your external user to upload data. This should be in your "transient-in" zone.</label>
-                    <br />
-                    <select asp-for="UploadSystemId" class="form-control" asp-items="ViewBag.UploadSystemId"></select>
-                    <span asp-validation-for="UploadSystemId" class="text-danger"></span>
+
+                <h3>
+                    Introduction
+                </h3>
+                <br />
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <p>
+                            <strong>
+                                Before you proceed, please read and confirm the following disclaimer statements, by checking the appropriate boxes or updating with input from the dropdown options:
+                            </strong>
+                        </p>
+                    </div>
                 </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.AuthorisedByDataSubjects)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="AuthorisedByDataSubjects" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="AuthorisedByDataSubjects" value="false" />
+                        <label for="no">No</label>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.DataAgreementsSigned)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="DataAgreementsSigned" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="DataAgreementsSigned" value="false" />
+                        <label for="no">No</label>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.UnderstandMetadata)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="UnderstandMetadata" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="UnderstandMetadata" value="false" />
+                        <label for="no">No</label>
+                    </div>
+                </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.AcceptResponsibility)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="AcceptResponsibility" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="AcceptResponsibility" value="false" />
+                        <label for="no">No</label>
+                    </div>
+                </div>
+                @* Missing:
+                    PHN dataset, Task group system, PHN system purpose version
+                *@
+
             </div>
             <div id="step-2" class="tab-pane" role="tabpanel">
                 <br />
-                <div class="form-group">
-                    <label> Select the Email System that you would like used for sending email alerts</label>
-                    <br />
-                    <select asp-for="EmailSystemId" class="form-control" asp-items="ViewBag.EmailSystemId"></select>
-                    <span asp-validation-for="EmailSystemId" class="text-danger"></span>
+
+                <h3>
+                    Understanding your Legal Responsibility
+                </h3>
+                <br />
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <p>
+                            <strong>
+                                Before you proceed, please read and confirm the following disclaimer statements, by checking the appropriate boxes or updating with input from the dropdown options:
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.DataPersonalOrDeIdentified)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="DataPersonalOrDeIdentified" value="personal" />
+                        <label for="yes">Personal</label>
+                        <input id="no" type="radio" asp-for="DataPersonalOrDeIdentified" value="deidentified" />
+                        <label for="no">De-Identified</label>
+                    </div>
+                </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <p>
+                            <strong>
+                                If it is de-identified data, what controls need to be in place to maintain this status?
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label asp-for="SuppressionRuleOne" class="control-label"></label>
+                    </div>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.SuppressionRuleOne, Model.SuppressionRuleOne.TemplateName, new { @class = "form-control" })
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="SuppressionRuleOneExpl"></label>
+                        <br />
+                        <textarea asp-for="SuppressionRuleOneExpl" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label asp-for="SuppressionRuleTwo" class="control-label"></label>
+                    </div>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.SuppressionRuleTwo, Model.SuppressionRuleTwo.TemplateName, new { @class = "form-control" })
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="SuppressionRuleTwoExpl"></label>
+                        <br />
+                        <textarea asp-for="SuppressionRuleTwoExpl" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label asp-for="SuppressionRuleThree" class="control-label"></label>
+                    </div>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.SuppressionRuleThree, Model.SuppressionRuleThree.TemplateName, new { @class = "form-control" })
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="SuppressionRuleThreeExpl"></label>
+                        <br />
+                        <textarea asp-for="SuppressionRuleThreeExpl" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label asp-for="SuppressionRuleFour" class="control-label"></label>
+                    </div>
+                    <div class="col-2">
+                        @Html.EditorFor(model => model.SuppressionRuleFour, Model.SuppressionRuleFour.TemplateName, new { @class = "form-control" })
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="SuppressionRuleFourExpl"></label>
+                        <br />
+                        <textarea asp-for="SuppressionRuleFourExpl" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.IdentifiedDataCustodianManagedRisk)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="IdentifiedDataCustodianManagedRisk" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="IdentifiedDataCustodianManagedRisk" value="false" />
+                        <label for="no">No</label>
+                    </div>
                 </div>
             </div>
             <div id="step-3" class="tab-pane" role="tabpanel">
                 <br />
-                <div class="form-group">
-                    <label> Select the storage account into which you would like the file copied after it is uploaded</label>
-                    <br />
-                    <select asp-for="TargetSystemId" class="form-control" asp-items="ViewBag.TargetSystemId"></select>
-                    <span asp-validation-for="TargetSystemId" class="text-danger"></span>
+
+                <h3>
+                    Data Metadata
+                </h3>
+                <br />
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <p>
+                            <strong>
+                                Conduct a high-level examination of your data, focussing on the data type, features, and properties. This involves:
+                            </strong>
+                        </p>
+                    </div>
                 </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-2">
+                        Data Type
+                    </div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-5">
+                                <label asp-for="DataForm" class="control-label"></label>
+                            </div>
+                            <div class="col-5">
+                                @Html.EditorFor(m => m.DataForm, Model.DataForm.TemplateName, new { @class = "form-control" })
+                            </div>
+                        </div>                        
+                    </div>                    
+                </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-2">
+                        Variable Type
+                    </div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-5">
+                                <label asp-for="InfoLevelOfData" class="control-label"></label>
+                            </div>
+                            <div class="col-5">
+                                @Html.EditorFor(m => m.InfoLevelOfData, Model.InfoLevelOfData.TemplateName, new { @class = "form-control" })
+                            </div>
+                        </div>                        
+                    </div>                    
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-2">
+                        Dataset properties
+                    </div>
+                    <div class="col-10 row">
+                        <div class="col-5">
+                            <label asp-for="TopThreePropsOfData" class="control-label"></label>
+                        </div>
+                        <div class="col-5">
+                            @Html.EditorFor(m => m.TopThreePropsOfData, Model.TopThreePropsOfData.TemplateName, new { @class = "form-control" })
+                        </div>
+                    </div>                    
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-2">
+                        The data itself can have properties that make the data situation more or less sensitive. Please answer the following:
+                    </div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-5">
+                                <label class="control-label">
+                                    @Html.DisplayNameFor(model => model.IsDataQualityLevelHigh)
+                                </label>
+                            </div>
+                            <div class="col-5">
+                                <input id="yes" type="radio" asp-for="IsDataQualityLevelHigh" value="true" />
+                                <label for="yes">Yes</label>
+                                <input id="no" type="radio" asp-for="IsDataQualityLevelHigh" value="false" />
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <label class="control-label">
+                                    @Html.DisplayNameFor(model => model.IsDataAboutVulnerablePopulation)
+                                </label>
+                            </div>
+                            <div class="col-5">
+                                <input id="yes" type="radio" asp-for="IsDataAboutVulnerablePopulation" value="true" />
+                                <label for="yes">Yes</label>
+                                <input id="no" type="radio" asp-for="IsDataAboutVulnerablePopulation" value="false" />
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <label class="control-label">
+                                    @Html.DisplayNameFor(model => model.IsDataCollatedInPastYear)
+                                </label>
+                            </div>
+                            <div class="col-5">
+                                <input id="yes" type="radio" asp-for="IsDataCollatedInPastYear" value="true" />
+                                <label for="yes">Yes</label>
+                                <input id="no" type="radio" asp-for="IsDataCollatedInPastYear" value="false" />
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <label class="control-label">
+                                    @Html.DisplayNameFor(model => model.IsDataHierarchical)
+                                </label>
+                            </div>
+                            <div class="col-5">
+                                <input id="yes" type="radio" asp-for="IsDataHierarchical" value="true" />
+                                <label for="yes">Yes</label>
+                                <input id="no" type="radio" asp-for="IsDataHierarchical" value="false" />
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <label class="control-label">
+                                    @Html.DisplayNameFor(model => model.IsDataTimeStamped)
+                                </label>
+                            </div>
+                            <div class="col-5">
+                                <input id="yes" type="radio" asp-for="IsDataTimeStamped" value="true" />
+                                <label for="yes">Yes</label>
+                                <input id="no" type="radio" asp-for="IsDataTimeStamped" value="false" />
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
             <div id="step-4" class="tab-pane" role="tabpanel">
                 <br />
-                <div class="form-group">
-                    <label> Select the frequency with which you would like the task run</label>
-                    <br />
-                    <select asp-for="ScheduleMasterId" class="form-control" asp-items="ViewBag.ScheduleMasterId"></select>
-                    <span asp-validation-for="ScheduleMasterId" class="text-danger"></span>
+
+                <h3>Data Subjects</h3>
+                <br />
+                <div class="form-group row col-12">
+                    <p>
+                        <strong>
+                            Working through the three points shown below will help you with decisions about both what data you can safely share or release and what is the most appropriate means by which to do this.
+                        </strong>
+                    </p>
                 </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-3 ">
+                        <label>Organisational Roles</label>
+                    </div>
+                    <div class="col-3">
+                        <label>System Roles</label>
+                    </div>
+
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.DataOwnerOrg)
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <select asp-for="DataOwnerOrg" asp-items="Html.GetEnumSelectList<WebApplication.Models.Customisations.WizardReference.OrganisationalRoles>()" class="form-control"></select>
+                    </div>
+
+                    <div class="col-3">
+                        <select asp-for="DataOwnerSys" asp-items="Html.GetEnumSelectList<WebApplication.Models.Customisations.WizardReference.SystemRoles>()" class="form-control"></select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.DataCustodianOrg)
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <select asp-for="DataCustodianOrg" asp-items="Html.GetEnumSelectList<WebApplication.Models.Customisations.WizardReference.OrganisationalRoles>()" class="form-control"></select>
+                    </div>
+
+                    <div class="col-3">
+                        <select asp-for="DataCustodianSys" asp-items="Html.GetEnumSelectList<WebApplication.Models.Customisations.WizardReference.SystemRoles>()" class="form-control"></select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.DataStewardOrg)
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <select asp-for="DataStewardOrg" asp-items="Html.GetEnumSelectList<WebApplication.Models.Customisations.WizardReference.OrganisationalRoles>()" class="form-control"></select>
+                    </div>
+
+                    <div class="col-3">
+                        <select asp-for="DataStewardSys" asp-items="Html.GetEnumSelectList<WebApplication.Models.Customisations.WizardReference.SystemRoles>()" class="form-control"></select>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="col-12 row">
+                    <div class="col-7 card-header-tabs">
+                        <h4>
+                            NOTE: What is the Organisation Role - RACI
+                        </h4>
+                        
+                        <table id="rolesTable">
+                            <tr>
+                                <th>Individual</th>
+                                <th>Responsible For</th>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Practice Staff
+                                </td>
+                                <td>
+                                    Create the file within their practice and are responsible for submitting the file to the PHN using the PHI portal
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    General Practice Data Manager
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Compiles and prepares the list of exempt practices to send the secure link via email</li>
+                                        <li>Manages the json files from exempt practices AND prepares the AIHW report for each PHN in csv format</li>
+                                        <li>Validation of the csv file submitted to the Department of Human Services</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    General Practice Data Team Member
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Generating the PIPQI AIHW report which is used in combination with the json files</li>                                        
+                                        <li>Validation of the csv file submitted to the Department of Human Services</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    General Practice Data Administrator
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Managing, tracking practice’s signed DSA through DocuSign</li>
+                                        <li>Ensuring compliant practices are onboarded</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Senior Programmer
+                                </td>
+                                <td>
+                                    On premises of the PHN. Preparation and validation of the csv file submitted to the Department of Human Services.
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <div class="col-5 card-header-tabs">
+                        <h4>
+                            NOTE: What is the System Role - Access
+                        </h4>
+
+                        <table id="rolesTable">
+                            <tr>
+                                <th>Individual</th>
+                                <th>Responsible For</th>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Reader
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Analyst
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Pipeline Administrator
+                                </td>
+                                <td>
+                                    Able to schedule and create new data integrations and transformations by editing the metadata db and in the future the web portal.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Data Administrator
+                                </td>
+                                <td>
+                                    Has control of data access and permissions within the phn zone (largely the Datawarehouse and data lake)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Administrator
+                                </td>
+                                <td>
+                                    For many PHN’s this role will be filled by an MSP.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Custodian
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Platform Manager
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
             </div>
             <div id="step-5" class="tab-pane" role="tabpanel">
                 <br />
-                <div class="form-group">
-                    <label> Select the storage account into which you would like the file copied after it is uploaded</label>
-                    <br />
-                    <textarea asp-for="ExternalParties" class="form-control" asp-items="ViewBag.TargetSystemId"></textarea>
-                    <span asp-validation-for="TargetSystemId" class="text-danger"></span>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.RespectDataAssurances)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="RespectDataAssurances" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="RespectDataAssurances" value="false" />
+                        <label for="no">No</label>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.HasProvidedTransparency)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="HasProvidedTransparency" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="HasProvidedTransparency" value="false" />
+                        <label for="no">No</label>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.HasObtainedSubjectsViews)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="HasObtainedSubjectsViews" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="HasObtainedSubjectsViews" value="false" />
+                        <label for="no">No</label>
+                    </div>
+                </div>
+                <div class="form-group row col-12">
+                    <div class="col-6">
+                        <label class="control-label">
+                            @Html.DisplayNameFor(model => model.HasFormalisedPrinciples)
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <input id="yes" type="radio" asp-for="HasFormalisedPrinciples" value="true" />
+                        <label for="yes">Yes</label>
+                        <input id="no" type="radio" asp-for="HasFormalisedPrinciples" value="false" />
+                        <label for="no">No</label>
+                    </div>
                 </div>
             </div>
             <div id="step-6" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label class="control-label"> Input the name of the file to be uploaded.</label>
-                    <input asp-for="UploadFileName" class="form-control" />
-                    <span asp-validation-for="UploadFileName" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-7" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label class="control-label"> Input the email address of the administrator who you would like to be notified once the file is uploaded.</label>
-                    <input asp-for="OperatorEmail" class="form-control" />
-                    <span asp-validation-for="OperatorEmail" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-8" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label> Select the Task Group into which you want your new tasks created</label>
-                    <br />
-                    <select asp-for="TaskGroupId" class="form-control" asp-items="ViewBag.TaskGroupId"></select>
-                    <span asp-validation-for="TaskGroupId" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div id="step-9" class="tab-pane" role="tabpanel">
+                <br />
+                <div class="form-group">
+                    <label asp-for="ImpactManagementReductionOptions" class="control-label"></label>
+                    @Html.EditorFor(model => model.ImpactManagementReductionOptions, Model.ImpactManagementReductionOptions.TemplateName, new { @class = "form-control" })
+
+
+                    <label asp-for="StakeholdersAssurance" class="control-label"></label>
+                    @Html.EditorFor(model => model.StakeholdersAssurance, Model.StakeholdersAssurance.TemplateName, new { @class = "form-control" })
+
+                    @Html.EditorFor(m => m.PlanForDataBreachProcess)
+                    @Html.EditorFor(m => m.DataBreachPlanExplanation)
+
+
+                </div>
+            </div>
+            <div id="step-10" class="tab-pane" role="tabpanel">
+                <br />
+                <div class="form-group">
+
                 </div>
             </div>
         </div>
-    </form>
+    }
+
 </div>
 
 
@@ -145,7 +722,7 @@
         $(document).ready(function () {
 
             // SmartWizard initialize
-            $('#smartwizard').smartWizard({ theme: 'dots'});
+            $('#smartwizard').smartWizard({ theme: 'dots' });
 
         });
 
