@@ -46,16 +46,16 @@ namespace WebApplication.Models.Customisations
         public PersonalDeIdentified DataPersonalOrDeIdentified { get; set; }
 
         [Display(Name = "9. Suppress both numerator and denominator if either or both of these in a row contain number <10 (to prevent back calculation), but don’t suppress the proportion")]
-        public SuppressionRuleOptions SuppressionRuleOne { get; set; }
+        public InputSelectionOptionsFor<SuppressionRuleOptions> SuppressionRuleOne { get; set; } = new InputSelectionOptionsFor<SuppressionRuleOptions>();
 
         [Display(Name = "10. If you suppress numerator and denominator only in one row, please supress the numerator and denominator in the adjacent row for that QIM (without supressing the proportion)")]
-        public SuppressionRuleOptions SuppressionRuleTwo { get; set; }
+        public InputSelectionOptionsFor<SuppressionRuleOptions> SuppressionRuleTwo { get; set; } = new InputSelectionOptionsFor<SuppressionRuleOptions>();
 
         [Display(Name = "11. If you find zeros in the rows for ‘0 – 4’ and/or ‘5 -14 Yr.’ age disaggregation for QIM 05, please merge the data for these two age groups to ‘<15 yrs.’ to see if there is any valid number (but rule 1 and 2 applies) ")]
-        public SuppressionRuleOptions SuppressionRuleThree { get; set; }
+        public InputSelectionOptionsFor<SuppressionRuleOptions> SuppressionRuleThree { get; set; } = new InputSelectionOptionsFor<SuppressionRuleOptions>();
 
         [Display(Name = "12. If you find zeros for Sex X (Indeterminate/Intersex/Unspecified/Not stated/Inadequately described) for any QIM, please merge all age groups and Indigenous status for Sex X to see if there is any valid number (again rule 1 and 2 applies)")]
-        public SuppressionRuleOptions SuppressionRuleFour { get; set; }
+        public InputSelectionOptionsFor<SuppressionRuleOptions> SuppressionRuleFour { get; set; } = new InputSelectionOptionsFor<SuppressionRuleOptions>();
 
         // screen change trigger
         [Display(Name = "13.In relation to \\“Do privacy obligations still apply to de-identified data?\\”, have you identified and documented how the data custodian should manage such a risk, while still using de-identified data in the ways that it is legally permitted to use it?")]
@@ -66,15 +66,15 @@ namespace WebApplication.Models.Customisations
         #region Data Metadata
 
         [Display(Name = "14. What form are your data in?")]
-        public FormOfData DataForm { get; set; }
+        public InputSelectionOptionsFor<FormOfData> DataForm { get; set; } = new InputSelectionOptionsFor<FormOfData>();
 
         // Note: spec is unclear. I have combined the info levels into 1 enum for now
 
         [Display(Name = "15. What level of information about the population do the data provide?")]
-        public InformationLevel InfoLevelOfData { get; set; }
+        public InputSelectionOptionsFor<InformationLevel> InfoLevelOfData { get; set; } = new InputSelectionOptionsFor<InformationLevel>();
 
         [Display(Name = "16. What are the top-3 properties of the dataset?")]
-        public CheckBoxOptionsFor<Properties> TopThreePropsOfData { get; set; } = new CheckBoxOptionsFor<Properties>();
+        public InputSelectionOptionsFor<Properties> TopThreePropsOfData { get; set; } = new InputSelectionOptionsFor<Properties>();
 
         [Display(Name = "17. Is the data quality high?")]
         public bool IsDataQualityLevelHigh { get; set; }
@@ -133,13 +133,13 @@ namespace WebApplication.Models.Customisations
 
         // can include multiple selections?
         [Display(Name = "29. Have you incorporated a top-level assessment to produce an initial specification? Outcomes are:")]
-        public CheckBoxOptionsFor<Specifications> TopLevelAssessment { get; set; } = new CheckBoxOptionsFor<Specifications>();
+        public InputSelectionOptionsFor<Specifications> TopLevelAssessment { get; set; } = new InputSelectionOptionsFor<Specifications>();
 
         [Display(Name = "30. Analysis to establish relevant plausible scenarios for your data situation. When you undertake a scenario analysis, you are essentially considering the how, who and why of a potential data breach.Explain ? ")]
         public string AnalysisExplanation { get; set; }
 
         [Display(Name = "31. Data Analytical approaches considered:")]
-        public CheckBoxOptionsFor<Properties> DataAnalyticalApproaches { get; set; } = new CheckBoxOptionsFor<Properties>();
+        public InputSelectionOptionsFor<Properties> DataAnalyticalApproaches { get; set; } = new InputSelectionOptionsFor<Properties>();
 
         [Display(Name = "32. Penetration Testing?")]
         public bool PreparationTesting { get; set; }
@@ -149,10 +149,10 @@ namespace WebApplication.Models.Customisations
         #region Identify the disclosure control processes that are relevant to your data situation
 
         [Display(Name = "33. If you need to reconfigure the environment, how would you do that?")]
-        public CheckBoxOptionsFor<EnvironmentReconfigurations> ReconfigureEnvirontment { get; set; } = new CheckBoxOptionsFor<EnvironmentReconfigurations>();
+        public InputSelectionOptionsFor<EnvironmentReconfigurations> ReconfigureEnvirontment { get; set; } = new InputSelectionOptionsFor<EnvironmentReconfigurations>();
 
         [Display(Name = "34. If you need to modify the data, how would you do that?")]
-        public CheckBoxOptionsFor<DataModification> ModifyingData { get; set; } = new CheckBoxOptionsFor<DataModification>();
+        public InputSelectionOptionsFor<DataModification> ModifyingData { get; set; } = new InputSelectionOptionsFor<DataModification>();
 
         [Display(Name = "35. Explanation:")]
         [StringLength(400)]
@@ -164,13 +164,13 @@ namespace WebApplication.Models.Customisations
         #region Impact management puts in place a plan for reducing the impact of such ane vent should it happen
 
         [Display(Name = "36. How would you manage the impact of a disclosure (related to Notifiable Data Breach) if you and your stakeholders have developed a good working relationship. What have you done to reduce the likelihood to manage this?")]
-        public CheckBoxOptionsFor<DataBreachImpactManagement> ImpactManagementReductionOptions { get; set; } = new CheckBoxOptionsFor<DataBreachImpactManagement>();
+        public InputSelectionOptionsFor<DataBreachImpactManagement> ImpactManagementReductionOptions { get; set; } = new InputSelectionOptionsFor<DataBreachImpactManagement>();
 
         [Display(Name = "37. Who your stakeholders are and what assurances you provided them with in terms of the use and protection of the data")]
-        public CheckBoxOptionsFor<StakeholderAssuranceProtection> StakeholdersAssurance { get; set; } = new CheckBoxOptionsFor<StakeholderAssuranceProtection>();
+        public InputSelectionOptionsFor<StakeholderAssuranceProtection> StakeholdersAssurance { get; set; } = new InputSelectionOptionsFor<StakeholderAssuranceProtection>();
 
         [Display(Name = "38. Document the process you would follow in the event of a possible breach.")]
-        public CheckBoxOptionsFor<DataBreachPlan> PlanForDataBreachProcess { get; set; } = new CheckBoxOptionsFor<DataBreachPlan>();
+        public InputSelectionOptionsFor<DataBreachPlan> PlanForDataBreachProcess { get; set; } = new InputSelectionOptionsFor<DataBreachPlan>();
 
         [Display(Name = "39. Explanation:")]
         [StringLength(400)]
