@@ -165,7 +165,6 @@ namespace WebApplication.Models.Customisations
 
         [Display(Name = "36. How would you manage the impact of a disclosure (related to Notifiable Data Breach) if you and your stakeholders have developed a good working relationship. What have you done to reduce the likelihood to manage this?")]
         public InputSelectionOptionsFor<DataBreachImpactManagement> ImpactManagementReductionOptions { get; set; } = new InputSelectionOptionsFor<DataBreachImpactManagement>();
-        public string ImpactManagementReductionOptionsOther { get; set; }
 
         [Display(Name = "37. Who your stakeholders are and what assurances you provided them with in terms of the use and protection of the data")]
         public InputSelectionOptionsFor<StakeholderAssuranceProtection> StakeholdersAssurance { get; set; } = new InputSelectionOptionsFor<StakeholderAssuranceProtection>();
