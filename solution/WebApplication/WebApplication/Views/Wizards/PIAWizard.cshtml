@@ -11,49 +11,61 @@
         <li>
             <a class="nav-link" href="#step-1">
                 <strong>Step 1</strong>
-                <br /> Select Storage Account for Upload
+                <br /> Introduction
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-2">
                 <strong>Step 2</strong>
-                <br /> Select Email System
+                <br /> Legal Responsibility
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-3">
                 <strong>Step 3</strong>
-                <br /> Select Lockbox Location
+                <br /> Know your Data
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-4">
                 <strong>Step 4</strong>
-                <br /> Select Schedule
+                <br /> Use Case
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-5">
                 <strong>Step 5</strong>
-                <br /> Input Third Party Details
+                <br /> Ethical Obligations
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-6">
                 <strong>Step 6</strong>
-                <br /> Input Upload FileName
+                <br /> Risk Processes
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-7">
                 <strong>Step 7</strong>
-                <br /> Input Operator Email Address
+                <br /> Risk  Assessment
             </a>
         </li>
         <li>
             <a class="nav-link" href="#step-8">
                 <strong>Step 8</strong>
-                <br /> Select Task Group
+                <br /> Control Process
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-9">
+                <strong>Step 9</strong>
+                <br /> Impact Management
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-10">
+                <strong>Step 10</strong>
+                <br /> Summary
             </a>
         </li>
     </ul>
@@ -122,6 +134,24 @@
                 </div>
             </div>
             <div id="step-8" class="tab-pane" role="tabpanel">
+                <br />
+                <div class="form-group">
+                    <label> Select the Task Group into which you want your new tasks created</label>
+                    <br />
+                    <select asp-for="TaskGroupId" class="form-control" asp-items="ViewBag.TaskGroupId"></select>
+                    <span asp-validation-for="TaskGroupId" class="text-danger"></span>
+                </div>
+            </div>
+            <div id="step-9" class="tab-pane" role="tabpanel">
+                <br />
+                <div class="form-group">
+                    <label> Select the Task Group into which you want your new tasks created</label>
+                    <br />
+                    <select asp-for="TaskGroupId" class="form-control" asp-items="ViewBag.TaskGroupId"></select>
+                    <span asp-validation-for="TaskGroupId" class="text-danger"></span>
+                </div>
+            </div>
+            <div id="step-10" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
                     <label> Select the Task Group into which you want your new tasks created</label>
