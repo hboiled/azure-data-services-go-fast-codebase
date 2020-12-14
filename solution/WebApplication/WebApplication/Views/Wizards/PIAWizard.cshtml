@@ -1,4 +1,4 @@
-﻿@model WebApplication.Models.Wizards.ExternalFileUpload
+﻿@model WebApplication.Models.Customisations.PIAWizardModel;
 @{
     ViewData["Title"] = "Privacy Impact Assessment";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -150,6 +150,8 @@
                     <select asp-for="TaskGroupId" class="form-control" asp-items="ViewBag.TaskGroupId"></select>
                     <span asp-validation-for="TaskGroupId" class="text-danger"></span>
                 </div>
+
+                
             </div>
             <div id="step-10" class="tab-pane" role="tabpanel">
                 <br />
