@@ -14,73 +14,72 @@
                 <br /> Introduction
             </a>
         </li>
-        @*<li>
-                <a class="nav-link" href="#step-2">
-                    <strong>Step 2</strong>
-                    <br /> Legal Responsibility
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#step-3">
-                    <strong>Step 3</strong>
-                    <br /> Know your Data
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#step-4">
-                    <strong>Step 4</strong>
-                    <br /> Use Case
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#step-5">
-                    <strong>Step 5</strong>
-                    <br /> Ethical Obligations
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#step-6">
-                    <strong>Step 6</strong>
-                    <br /> Risk Processes
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#step-7">
-                    <strong>Step 7</strong>
-                    <br /> Risk  Assessment
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#step-8">
-                    <strong>Step 8</strong>
-                    <br /> Control Process
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#step-9">
-                    <strong>Step 9</strong>
-                    <br /> Impact Management
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#step-10">
-                    <strong>Step 10</strong>
-                    <br /> Summary
-                </a>
-            </li>*@
+        <li>
+            <a class="nav-link" href="#step-2">
+                <strong>Step 2</strong>
+                <br /> Legal Responsibility
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-3">
+                <strong>Step 3</strong>
+                <br /> Know your Data
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-4">
+                <strong>Step 4</strong>
+                <br /> Use Case
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-5">
+                <strong>Step 5</strong>
+                <br /> Ethical Obligations
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-6">
+                <strong>Step 6</strong>
+                <br /> Risk Processes
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-7">
+                <strong>Step 7</strong>
+                <br /> Risk  Assessment
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-8">
+                <strong>Step 8</strong>
+                <br /> Control Process
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-9">
+                <strong>Step 9</strong>
+                <br /> Impact Management
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" href="#step-10">
+                <strong>Step 10</strong>
+                <br /> Summary
+            </a>
+        </li>
     </ul>
     @using (Html.BeginForm("PIAWizard", "Wizards", FormMethod.Post))
-    { 
+    {
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="tab-content">
-        <div id="step-1" class="tab-pane" role="tabpanel">
-            <br />
-            <div class="form-group">
+            <div id="step-1" class="tab-pane" role="tabpanel">
+                <br />
+                <div class="form-group">
 
-                <input type="submit" value="Submit Data" id="btnSubmit" />
+                </div>
             </div>
-        </div>
-        <div id="step-2" class="tab-pane" role="tabpanel">
+            <div id="step-2" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
 
@@ -113,38 +112,65 @@
             <div id="step-7" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
+                    <label asp-for="TopLevelAssessment" class="control-label"></label>
+                    @Html.EditorFor(model => model.TopLevelAssessment, Model.TopLevelAssessment.TemplateName, additionalViewData: new { @class = "form-control" })
 
+                    <label asp-for="AnalysisExplanation" class="control-label"></label>
+                    @Html.EditorFor(model => model.AnalysisExplanation, additionalViewData: new { @class = "form-control" })
+
+                    <label asp-for="DataAnalyticalApproaches" class="control-label"></label>
+                    @Html.EditorFor(model => model.DataAnalyticalApproaches, Model.DataAnalyticalApproaches.TemplateName, additionalViewData: new { @class = "form-control" })
+
+                    <label asp-for="PreparationTesting" class="control-label"></label>
+                    @Html.EditorFor(model => model.PreparationTesting, additionalViewData: new { @class = "form-control" })
                 </div>
             </div>
             <div id="step-8" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
+                    <h3>Disclosure contrl processes esentially attend to either or both of the two elements of your data situation: the data and i's environment. If your risk analysis in Component 6 suggests that you need stronger controls, then you have two (non-exclusive) choices:</h3><h3>1. Reconfigure the data environment</h3><h3>2. Modify the data, including possibly reducing the amount of data under consideration</h3>
 
+                    <label asp-for="ReconfigureEnvirontment" class="control-label"></label>
+                    @Html.EditorFor(model => model.ReconfigureEnvirontment, Model.ReconfigureEnvirontment.TemplateName, additionalViewData: new { @class = "form-control" })
+
+                    <label asp-for="ModifyingData" class="control-label"></label>
+                    @Html.EditorFor(model => model.ModifyingData, Model.ModifyingData.TemplateName, additionalViewData: new { @class = "form-control" })
+
+                    <label asp-for="ExplanationModifyingDataOptions" class="control-label"></label>
+                    <br />
+                    <textarea asp-for="ExplanationModifyingDataOptions" class="form-control" text-wrap:normal" type="text" placeholder=""></textarea>
+                    <span asp-validation-for="ExplanationModifyingDataOptions" class="text-danger"></span>
                 </div>
             </div>
             <div id="step-9" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
+                    <h2>Identify your stakeholders and plan how you will communicate with them</h2>
                     <label asp-for="ImpactManagementReductionOptions" class="control-label"></label>
                     @Html.EditorFor(model => model.ImpactManagementReductionOptions, Model.ImpactManagementReductionOptions.TemplateName, new { @class = "form-control" })
+                    @Html.EditorFor(model => model.ImpactManagementReductionOptionsOther, additionalViewData: new { @class = "form-control" })
 
-
+                    <h2>Plan what happens after you have shared or released the data</h2>
                     <label asp-for="StakeholdersAssurance" class="control-label"></label>
-                    @Html.EditorFor(model => model.StakeholdersAssurance, Model.StakeholdersAssurance.TemplateName, new { @class = "form-control" })
+                    @Html.EditorFor(model => model.StakeholdersAssurance, Model.StakeholdersAssurance.TemplateName, additionalViewData: new { @class = "form-control" })
 
-                    @Html.EditorFor(m => m.PlanForDataBreachProcess)
-                    @Html.EditorFor(m => m.DataBreachPlanExplanation)
+                    <label asp-for="PlanForDataBreachProcess" class="control-label"></label>
+                    @Html.EditorFor(model => model.PlanForDataBreachProcess, Model.PlanForDataBreachProcess.TemplateName, additionalViewData: new { @class = "form-control" })
 
-
+                    <h3>Plan what you will do if things go wrong (Data breach Process)</h3>
+                    <label asp-for="DataBreachPlanExplanation" class="control-label"></label>
+                    <br />
+                    <textarea asp-for="DataBreachPlanExplanation" class="form-control" text-wrap:normal" type="text" placeholder=""></textarea>
+                    <span asp-validation-for="DataBreachPlanExplanation" class="text-danger"></span>
                 </div>
             </div>
             <div id="step-10" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-
+                    <input type="submit" value="Submit Data" id="btnSubmit" />
                 </div>
             </div>
-    </div>
+        </div>
     }
 </div>
 
@@ -159,7 +185,7 @@
         $(document).ready(function () {
 
             // SmartWizard initialize
-            $('#smartwizard').smartWizard({ theme: 'dots'});
+            $('#smartwizard').smartWizard({ theme: 'dots' });
 
         });
 
