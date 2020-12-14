@@ -1,4 +1,4 @@
-﻿@model WebApplication.Models.Customisations.PIAWizardModel;
+@model WebApplication.Models.Customisations.PIAWizardModel;
 @{
     ViewData["Title"] = "Privacy Impact Assessment";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -669,41 +669,118 @@
             <div id="step-6" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
+                    <h3>Meet your ethical obligations</h3>
+                    <p><b>Considerations here include: consent, transparency, stakeholder engagement, and governanc. You should document how you are going to achieve each of those aspects.</b></p>
+
+                    <div>
+                        <label asp-for="RespectDataAssurances" class="control-label" style="width:75%"></label>
+                        <span style="padding-left:50px;">
+                            @Html.RadioButtonFor(model => model.RespectDataAssurances, "true") Yes
+                            @Html.RadioButtonFor(model => model.RespectDataAssurances, "false") No
+                        </span>
+                    </div>
+
+                    <div>
+                        <label asp-for="HasProvidedTransparency" class="control-label" style="width:75%"></label>
+                        <span style="padding-left:50px;">
+                            @Html.RadioButtonFor(model => model.HasProvidedTransparency, "true") Yes
+                            @Html.RadioButtonFor(model => model.HasProvidedTransparency, "false") No
+                        </span>
+                    </div>
+
+                    <div>
+                        <label asp-for="HasObtainedSubjectsViews" class="control-label" style="width:75%"></label>
+                        <span style="padding-left:50px;">
+                            @Html.RadioButtonFor(model => model.HasObtainedSubjectsViews, "true") Yes
+                            @Html.RadioButtonFor(model => model.HasObtainedSubjectsViews, "false") No
+                        </span>
+                    </div>
+
+                    <div>
+                        <label asp-for="HasFormalisedPrinciples" class="control-label" style="width:75%"></label>
+                        <span style="padding-left:50px;">
+                            @Html.RadioButtonFor(model => model.HasFormalisedPrinciples, "true") Yes
+                            @Html.RadioButtonFor(model => model.HasFormalisedPrinciples, "false") No
+                        </span>
+                    </div>
 
                 </div>
             </div>
             <div id="step-7" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
+                    <h3>Identify the processes you will need to go through to assess disclosure risk</h3>
+                    <p><b>Risk assessment is a crucial step in the process of producing safe useful data, helping you to:</b></p>
+                    <ul>
+                        <li><b>determine whether your data shold be shared or released at all;</b></li>
+                        <li><b>determine how much disclosure control should be applied; and</b></li>
+                        <li><b>think about the optimum means for sharing or releasing your data.</b></li>
+                    </ul>
+                    <label asp-for="TopLevelAssessment" class="control-label"></label>
+                    @Html.EditorFor(model => model.TopLevelAssessment, Model.TopLevelAssessment.TemplateName, additionalViewData: new { @class = "form-control" })
 
+                    <label asp-for="AnalysisExplanation" class="control-label"></label>
+                    <br />
+                    <textarea asp-for="AnalysisExplanation" class="form-control" text-wrap:normal" type="text" placeholder=""></textarea>
+                    <span asp-validation-for="AnalysisExplanation" class="text-danger"></span>
+                    <br />
+
+                    <label asp-for="DataAnalyticalApproaches" class="control-label"></label>
+                    @Html.EditorFor(model => model.DataAnalyticalApproaches, Model.DataAnalyticalApproaches.TemplateName, additionalViewData: new { @class = "form-control" })
+
+                    <label asp-for="PreparationTesting" class="control-label"></label>
+                    @Html.RadioButtonFor(model => model.PreparationTesting, "true") Yes
+                    @Html.RadioButtonFor(model => model.PreparationTesting, "false") No 
                 </div>
             </div>
             <div id="step-8" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
+                   <h3>Identify the disclosure control processes that are relevant to your data situation</h3>
+                    <p><b>Disclosure control processes esentially attend to either or both of the two elements of your data situation: the data and i's environment. If your risk analysis in Component 6 suggests that you need stronger controls, then you have two (non-exclusive) choices:</b></p>
+                    <ol>
+                        <li><b>Reconfigure the data environment</b></li>
+                        <li><b>Modify the data, including possibly reducing the amount of data under consideration</b></li>
+                    </ol>
 
+                    <label asp-for="ReconfigureEnvirontment" class="control-label"></label>
+                    @Html.EditorFor(model => model.ReconfigureEnvirontment, Model.ReconfigureEnvirontment.TemplateName, additionalViewData: new { @class = "form-control" })
+
+                    <label asp-for="ModifyingData" class="control-label"></label>
+                    @Html.EditorFor(model => model.ModifyingData, Model.ModifyingData.TemplateName, additionalViewData: new { @class = "form-control" })
+
+                    <label asp-for="ExplanationModifyingDataOptions" class="control-label"></label>
+                    <br />
+                    <textarea asp-for="ExplanationModifyingDataOptions" class="form-control" text-wrap:normal" type="text" placeholder=""></textarea>
+                    <span asp-validation-for="ExplanationModifyingDataOptions" class="text-danger"></span>
                 </div>
             </div>
             <div id="step-9" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
+                    <h3>Impact management puts in place a plan for reducing the impact of such an event should it happen</h3>
+                    <p><b>Identify your stakeholders and plan how you will communicate with them</b></p>
                     <label asp-for="ImpactManagementReductionOptions" class="control-label"></label>
-                    @Html.EditorFor(model => model.ImpactManagementReductionOptions, Model.ImpactManagementReductionOptions.TemplateName, new { @class = "form-control" })
+                    @Html.EditorFor(model => model.ImpactManagementReductionOptions, Model.ImpactManagementReductionOptions.TemplateName, new { @class = "form-control" })  
 
-
+                    <h2>Plan what happens after you have shared or released the data</h2>
                     <label asp-for="StakeholdersAssurance" class="control-label"></label>
-                    @Html.EditorFor(model => model.StakeholdersAssurance, Model.StakeholdersAssurance.TemplateName, new { @class = "form-control" })
+                    @Html.EditorFor(model => model.StakeholdersAssurance, Model.StakeholdersAssurance.TemplateName, additionalViewData: new { @class = "form-control" })
 
-                    @Html.EditorFor(m => m.PlanForDataBreachProcess)
-                    @Html.EditorFor(m => m.DataBreachPlanExplanation)
+                    <label asp-for="PlanForDataBreachProcess" class="control-label"></label>
+                    @Html.EditorFor(model => model.PlanForDataBreachProcess, Model.PlanForDataBreachProcess.TemplateName, additionalViewData: new { @class = "form-control" })
 
-
+                    <p><b>Plan what you will do if things go wrong (Data breach Process)</b></p>
+                    <label asp-for="DataBreachPlanExplanation" class="control-label"></label>
+                    <br />
+                    <textarea asp-for="DataBreachPlanExplanation" class="form-control" text-wrap:normal" type="text" placeholder=""></textarea>
+                    <span asp-validation-for="DataBreachPlanExplanation" class="text-danger"></span>
                 </div>
             </div>
             <div id="step-10" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-
+                    <input type="submit" value="Submit Data" id="btnSubmit" />
                 </div>
             </div>
         </div>
