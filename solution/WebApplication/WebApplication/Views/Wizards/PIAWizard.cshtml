@@ -14,156 +14,138 @@
                 <br /> Introduction
             </a>
         </li>
-        <li>
-            <a class="nav-link" href="#step-2">
-                <strong>Step 2</strong>
-                <br /> Legal Responsibility
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="#step-3">
-                <strong>Step 3</strong>
-                <br /> Know your Data
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="#step-4">
-                <strong>Step 4</strong>
-                <br /> Use Case
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="#step-5">
-                <strong>Step 5</strong>
-                <br /> Ethical Obligations
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="#step-6">
-                <strong>Step 6</strong>
-                <br /> Risk Processes
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="#step-7">
-                <strong>Step 7</strong>
-                <br /> Risk  Assessment
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="#step-8">
-                <strong>Step 8</strong>
-                <br /> Control Process
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="#step-9">
-                <strong>Step 9</strong>
-                <br /> Impact Management
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="#step-10">
-                <strong>Step 10</strong>
-                <br /> Summary
-            </a>
-        </li>
+        @*<li>
+                <a class="nav-link" href="#step-2">
+                    <strong>Step 2</strong>
+                    <br /> Legal Responsibility
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#step-3">
+                    <strong>Step 3</strong>
+                    <br /> Know your Data
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#step-4">
+                    <strong>Step 4</strong>
+                    <br /> Use Case
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#step-5">
+                    <strong>Step 5</strong>
+                    <br /> Ethical Obligations
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#step-6">
+                    <strong>Step 6</strong>
+                    <br /> Risk Processes
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#step-7">
+                    <strong>Step 7</strong>
+                    <br /> Risk  Assessment
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#step-8">
+                    <strong>Step 8</strong>
+                    <br /> Control Process
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#step-9">
+                    <strong>Step 9</strong>
+                    <br /> Impact Management
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#step-10">
+                    <strong>Step 10</strong>
+                    <br /> Summary
+                </a>
+            </li>*@
     </ul>
-    <form asp-action="Create">
+    @using (Html.BeginForm("PIAWizard", "Wizards", FormMethod.Post))
+    { 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="tab-content">
-            <div id="step-1" class="tab-pane" role="tabpanel">
-                <br />
-                <div class="form-group">
-                    <label> Select the Azure storage location into which you would like your external user to upload data. This should be in your "transient-in" zone.</label>
-                    <br />
-                    <select asp-for="UploadSystemId" class="form-control" asp-items="ViewBag.UploadSystemId"></select>
-                    <span asp-validation-for="UploadSystemId" class="text-danger"></span>
-                </div>
+        <div id="step-1" class="tab-pane" role="tabpanel">
+            <br />
+            <div class="form-group">
+
+                <input type="submit" value="Submit Data" id="btnSubmit" />
             </div>
-            <div id="step-2" class="tab-pane" role="tabpanel">
+        </div>
+        <div id="step-2" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label> Select the Email System that you would like used for sending email alerts</label>
-                    <br />
-                    <select asp-for="EmailSystemId" class="form-control" asp-items="ViewBag.EmailSystemId"></select>
-                    <span asp-validation-for="EmailSystemId" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-3" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label> Select the storage account into which you would like the file copied after it is uploaded</label>
-                    <br />
-                    <select asp-for="TargetSystemId" class="form-control" asp-items="ViewBag.TargetSystemId"></select>
-                    <span asp-validation-for="TargetSystemId" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-4" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label> Select the frequency with which you would like the task run</label>
-                    <br />
-                    <select asp-for="ScheduleMasterId" class="form-control" asp-items="ViewBag.ScheduleMasterId"></select>
-                    <span asp-validation-for="ScheduleMasterId" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-5" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label> Select the storage account into which you would like the file copied after it is uploaded</label>
-                    <br />
-                    <textarea asp-for="ExternalParties" class="form-control" asp-items="ViewBag.TargetSystemId"></textarea>
-                    <span asp-validation-for="TargetSystemId" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-6" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label class="control-label"> Input the name of the file to be uploaded.</label>
-                    <input asp-for="UploadFileName" class="form-control" />
-                    <span asp-validation-for="UploadFileName" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-7" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label class="control-label"> Input the email address of the administrator who you would like to be notified once the file is uploaded.</label>
-                    <input asp-for="OperatorEmail" class="form-control" />
-                    <span asp-validation-for="OperatorEmail" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-8" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label> Select the Task Group into which you want your new tasks created</label>
-                    <br />
-                    <select asp-for="TaskGroupId" class="form-control" asp-items="ViewBag.TaskGroupId"></select>
-                    <span asp-validation-for="TaskGroupId" class="text-danger"></span>
+
                 </div>
             </div>
             <div id="step-9" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label> Select the Task Group into which you want your new tasks created</label>
-                    <br />
-                    <select asp-for="TaskGroupId" class="form-control" asp-items="ViewBag.TaskGroupId"></select>
-                    <span asp-validation-for="TaskGroupId" class="text-danger"></span>
-                </div>
+                    <label asp-for="ImpactManagementReductionOptions" class="control-label"></label>
+                    @Html.EditorFor(model => model.ImpactManagementReductionOptions, Model.ImpactManagementReductionOptions.TemplateName, new { @class = "form-control" })
 
-                
+
+                    <label asp-for="StakeholdersAssurance" class="control-label"></label>
+                    @Html.EditorFor(model => model.StakeholdersAssurance, Model.StakeholdersAssurance.TemplateName, new { @class = "form-control" })
+
+                    @Html.EditorFor(m => m.PlanForDataBreachProcess)
+                    @Html.EditorFor(m => m.DataBreachPlanExplanation)
+
+
+                </div>
             </div>
             <div id="step-10" class="tab-pane" role="tabpanel">
                 <br />
                 <div class="form-group">
-                    <label> Select the Task Group into which you want your new tasks created</label>
-                    <br />
-                    <select asp-for="TaskGroupId" class="form-control" asp-items="ViewBag.TaskGroupId"></select>
-                    <span asp-validation-for="TaskGroupId" class="text-danger"></span>
+
                 </div>
             </div>
-        </div>
-    </form>
+    </div>
+    }
 </div>
 
 

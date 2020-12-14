@@ -33,7 +33,7 @@ namespace WebApplication.Controllers.Customisations
             return View();
         }
 
-        public async Task<IActionResult> PIAWizard()
+        public async Task<IActionResult> PIAWizard(WebApplication.Models.Customisations.PIAWizardModel model)
         {
 
             ViewData["UploadSystemId"] = new SelectList(_context.SourceAndTargetSystems.Where(t => t.SystemType.ToLower() == "azure blob").OrderBy(t => t.SystemName), "SystemId", "SystemName");
