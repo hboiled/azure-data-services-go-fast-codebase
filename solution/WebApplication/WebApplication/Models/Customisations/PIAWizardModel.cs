@@ -48,17 +48,29 @@ namespace WebApplication.Models.Customisations
         [Display(Name = "9. Suppress both numerator and denominator if either or both of these in a row contain number <10 (to prevent back calculation), but don’t suppress the proportion")]
         public InputSelectionOptionsFor<SuppressionRuleOptions> SuppressionRuleOne { get; set; } = new InputSelectionOptionsFor<SuppressionRuleOptions>();
 
+        [Display(Name = "Explanation:")]
+        public string SuppressionRuleOneExpl { get; set; }
+
         [Display(Name = "10. If you suppress numerator and denominator only in one row, please supress the numerator and denominator in the adjacent row for that QIM (without supressing the proportion)")]
         public InputSelectionOptionsFor<SuppressionRuleOptions> SuppressionRuleTwo { get; set; } = new InputSelectionOptionsFor<SuppressionRuleOptions>();
+
+        [Display(Name = "Explanation:")]
+        public string SuppressionRuleTwoExpl { get; set; }
 
         [Display(Name = "11. If you find zeros in the rows for ‘0 – 4’ and/or ‘5 -14 Yr.’ age disaggregation for QIM 05, please merge the data for these two age groups to ‘<15 yrs.’ to see if there is any valid number (but rule 1 and 2 applies) ")]
         public InputSelectionOptionsFor<SuppressionRuleOptions> SuppressionRuleThree { get; set; } = new InputSelectionOptionsFor<SuppressionRuleOptions>();
 
+        [Display(Name = "Explanation:")]
+        public string SuppressionRuleThreeExpl { get; set; }
+
         [Display(Name = "12. If you find zeros for Sex X (Indeterminate/Intersex/Unspecified/Not stated/Inadequately described) for any QIM, please merge all age groups and Indigenous status for Sex X to see if there is any valid number (again rule 1 and 2 applies)")]
         public InputSelectionOptionsFor<SuppressionRuleOptions> SuppressionRuleFour { get; set; } = new InputSelectionOptionsFor<SuppressionRuleOptions>();
 
+        [Display(Name = "Explanation:")]
+        public string SuppressionRuleFourExpl { get; set; }
+
         // screen change trigger
-        [Display(Name = "13.In relation to \\“Do privacy obligations still apply to de-identified data?\\”, have you identified and documented how the data custodian should manage such a risk, while still using de-identified data in the ways that it is legally permitted to use it?")]
+        [Display(Name = "13. In relation to \\“Do privacy obligations still apply to de-identified data?\\”, have you identified and documented how the data custodian should manage such a risk, while still using de-identified data in the ways that it is legally permitted to use it?")]
         public bool IdentifiedDataCustodianManagedRisk { get; set; }
 
         #endregion
